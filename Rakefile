@@ -3,18 +3,22 @@ require 'rake'
 
 begin
   require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "get_args"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "crnixon@gmail.com"
-    gem.homepage = "http://github.com/crnixon/get_args"
-    gem.authors = ["Clinton R. Nixon"]
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+  Jeweler::Tasks.new do |gemspec|
+    gemspec.name = "get_args"
+    gemspec.summary = "Allows one to introspect on the argument names and defaults for a method."
+    gemspec.description = %Q[
+      Extracted from Merb, get_args allows you to query a method for its argument names and defaults.
+      
+      This gem exists so you can get this functionality without having to include all of Merb.
+    ].strip
+    gemspec.email = "crnixon@gmail.com"
+    gemspec.homepage = "http://github.com/crnixon/get_args"
+    gemspec.authors = ["maiha", "Yehuda Katz"]
+    gemspec.add_dependency('extlib', '>= 0.9.13')
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
+  puts "Jeweler not available. Install it with: sudo gem install jeweler"
 end
 
 require 'rake/testtask'
@@ -22,19 +26,6 @@ Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
   test.pattern = 'test/**/test_*.rb'
   test.verbose = true
-end
-
-begin
-  require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test.libs << 'test'
-    test.pattern = 'test/**/test_*.rb'
-    test.verbose = true
-  end
-rescue LoadError
-  task :rcov do
-    abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
-  end
 end
 
 task :test => :check_dependencies

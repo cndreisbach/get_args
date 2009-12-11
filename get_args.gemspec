@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{get_args}
-  s.version = "1.0.0"
+  s.version = "1.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["maiha", "Yehuda Katz"]
@@ -25,11 +25,14 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "get_args.gemspec",
+     "lib/argument_list.rb",
      "lib/get_args.rb",
      "lib/jruby_args.rb",
      "lib/mri_args.rb",
      "lib/vm_args.rb",
      "test/helper.rb",
+     "test/test_argument_list.rb",
      "test/test_get_args.rb"
   ]
   s.homepage = %q{http://github.com/crnixon/get_args}
@@ -39,6 +42,7 @@ Gem::Specification.new do |s|
   s.summary = %q{Allows one to introspect on the argument names and defaults for a method.}
   s.test_files = [
     "test/helper.rb",
+     "test/test_argument_list.rb",
      "test/test_get_args.rb"
   ]
 

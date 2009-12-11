@@ -9,6 +9,13 @@ elsif RUBY_VERSION < "1.9"
 else
   require 'vm_args'
 end
+require 'argument_list'
+
+module GetArgs
+  def get_argument_list
+    ArgumentList.new(get_args.first)
+  end
+end
 
 class UnboundMethod
   include GetArgs

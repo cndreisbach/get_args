@@ -4,8 +4,8 @@ module GetArgs
       @arguments = args_array.map { |arg| Argument.new(arg) }
     end
   
-    def method_missing(*args)
-      @arguments.send(*args)
+    def method_missing(*args, &block)
+      @arguments.send(*args, &block)
     end
   end
 
@@ -23,6 +23,10 @@ module GetArgs
     
     def multiple?
       name.to_s.slice(0,1) == '*'
+    end
+    
+    def to_s
+      name
     end
   end
 end
